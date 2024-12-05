@@ -1,0 +1,9 @@
+fastapi
+tortoise-orm
+tortoise-cli
+aerich
+uvicorn
+pydantic
+python-dotenv
+passlib
+psycopg2-binary
