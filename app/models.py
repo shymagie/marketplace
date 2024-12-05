@@ -59,6 +59,22 @@ class BusinessOwner(Model):
         return self.business_name
 
 
+
+"""
+a product category to handle different categories
+"""
+class Category(Model):
+    id = fields.IntField(pk=True)
+    name = fields.CharField(max_length=255)
+     """
+     reverse relationship for category in product
+     """
+    products = fields.ReverseRelation["Product"]
+
+    def __str__(self):
+        return self.name
+
+    
 # Product Model
 class Product(Model):
     id = fields.IntField(pk=True)
@@ -70,6 +86,7 @@ class Product(Model):
 
     # Seller relationship
     seller = fields.ForeignKeyField("models.BusinessOwner", related_name="products", null=True)  # Seller can be optional
+    category = fields.ForeignKeyField("models.Category", related_name="product_categories", null=True)  # Category can be optional
 
     # Reverse relationship for orders
     orders = fields.ReverseRelation["Order"]
