@@ -80,6 +80,7 @@ class ProductCreate(BaseModel):
     quantity: int
     description: Optional[str]
     seller_id: int  # The ID of the BusinessOwner selling the product
+    category_id: int
 
 class ProductResponse(BaseModel):
     id: int
@@ -89,6 +90,7 @@ class ProductResponse(BaseModel):
     quantity: int
     description: Optional[str]
     seller_id: int
+    category_id: int
 
     class Config:
         from_attributes = True
